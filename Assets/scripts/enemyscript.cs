@@ -10,6 +10,9 @@ public class enemyscript : MonoBehaviour
     {
        float randomPosition = Random.Range(-9, 9);
         transform.position = new Vector2(randomPosition, 6);
+        //Hitta enemyspawner-objektet | GameObject.Find("")
+        //Spara enemyspawner-skriptet från det objektet i enemyspawner | GetComponent<komponent>();
+        enemyspawner = GameObject.Find("EnemySpawner").GetComponent<enemyspawner>();
 
     }
 
@@ -41,12 +44,13 @@ public class enemyscript : MonoBehaviour
 
             if (enemyHP <= 0)
             {
-                Destroy(gameObject);
+               
                 if (enemyspawner != null)
                 {
                     enemyspawner.enemycounter--;
                 }
             }
+            Destroy(gameObject);
         }
     }
 }
