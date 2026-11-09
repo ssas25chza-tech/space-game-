@@ -6,7 +6,7 @@ public class enemyspawner : MonoBehaviour
 {
  
     public GameObject enemy;
-    public float timeInterval = 2f;
+    public float timeInterval = 2;
     
     public float enemycounter;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,7 +25,7 @@ public class enemyspawner : MonoBehaviour
         while (true) 
         {
             yield return new WaitForSeconds(timeInterval);
-            if (enemycounter <= 5)
+            if (enemycounter < 5)
             {
                 Instantiate(enemy, this.transform.position, Quaternion.identity);
                 enemycounter++;
